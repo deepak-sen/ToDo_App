@@ -75,16 +75,40 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:hint="02/02/2020"
+    android:hint="05/05/2020"
     android:id="@+id/dateText"></TextView>
     <Button
         android:id="@+id/datePick"
-        android:layout_width="379dp"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorSecondary"
         android:text="Pick Date"
+        android:textColor="@android:color/primary_text_dark"
 
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="12:12 PM"
+        android:id="@+id/timeText"></TextView>
+    <Button
+        android:id="@+id/timePick"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorSecondary"
+        android:text="Pick Time"
+        android:textColor="@android:color/primary_text_dark" />
     <!-- Add button -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:id="@+id/dateText"></TextView>
     <Button
         android:id="@+id/saveButton"
         style="@style/TextAppearance.AppCompat.Large"

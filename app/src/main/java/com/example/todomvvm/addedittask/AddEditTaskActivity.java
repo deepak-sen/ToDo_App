@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,18 +17,22 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.example.todomvvm.R;
 import com.example.todomvvm.database.AppDatabase;
 import com.example.todomvvm.database.Repository;
 import com.example.todomvvm.database.TaskEntry;
 import com.example.todomvvm.tasks.DatePickerFragment;
+import com.example.todomvvm.tasks.TimePickerFragment;
 
 import java.text.DateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
-public class AddEditTaskActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class AddEditTaskActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     // Extra for the task ID to be received in the intent
     public static final String EXTRA_TASK_ID = "extraTaskId";
@@ -44,9 +49,9 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
     // Fields for views
     EditText mEditText;
     RadioGroup mRadioGroup;
-    Button mButton , datepick;
+    Button mButton , datepick , timepick;
 
-    TextView datetext;
+    TextView datetext, timetext;
 
     private int mTaskId = DEFAULT_TASK_ID;
 
@@ -86,7 +91,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
                 });
 
             }
-        }else{
+        } else {
             AddEditTaskViewModelFactory factory = new AddEditTaskViewModelFactory(getApplication(), mTaskId);
             viewModel = ViewModelProviders.of(this, factory).get(AddEditTaskViewModel.class);
         }
@@ -114,7 +119,22 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
                 DialogFragment datePicker = new DatePickerFragment();
                 datePicker.show(getSupportFragmentManager(), "date picker");
             }
+
+
         });
+
+        timepick = findViewById(R.id.timePick);
+
+        timepick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View w) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "time picker");
+            }
+
+
+        });
+
 
 
         mButton = findViewById(R.id.saveButton);
@@ -134,6 +154,16 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         datetext= (TextView) findViewById(R.id.dateText);
         datetext.setText(currentDateString);
     }
+
+    public void onTimeSet(TimePicker view, int hour, int minute) {
+        Calendar t = Calendar.getInstance();
+        t.set(Calendar.HOUR, hour);
+        t.set(Calendar.MINUTE, minute);
+
+        String currentTimeString = DateFormat.getTimeInstance(DateFormat.FULL).format(t.getTime());
+        timetext= (TextView) findViewById(R.id.timeText);
+        timetext.setText(currentTimeString);
+    }
     /**
      * populateUI would be called to populate the UI when in update mode
      *
@@ -144,8 +174,9 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
             return;
         }
         mEditText.setText(task.getDescription());
-    datetext.setText(task.getTaskd());
+
         setPriorityInViews(task.getPriority());
+        datetext.setText(task.getTaskd());
 
     }
 
@@ -158,8 +189,9 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
      String taskdate = datetext.getText().toString();
+        String tasktime = timetext.getText().toString();
         Date date = new Date();
-        TaskEntry todo = new TaskEntry(description, priority, taskdate, date);
+        TaskEntry todo = new TaskEntry(description, priority, taskdate, tasktime, date);
         if(mTaskId == DEFAULT_TASK_ID)
             viewModel.insertTask(todo);
         else{
