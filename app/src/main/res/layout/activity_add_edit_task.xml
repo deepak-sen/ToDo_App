@@ -72,7 +72,18 @@
             android:theme="@style/WhiteRadioButton" />
 
     </RadioGroup>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="02/02/2020"
+    android:id="@+id/dateText"></TextView>
+    <Button
+        android:id="@+id/datePick"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:text="Pick Date"
 
+        />
     <!-- Add button -->
     <Button
         android:id="@+id/saveButton"

@@ -71,6 +71,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         TaskEntry taskEntry = mTaskEntries.get(position);
         String description = taskEntry.getDescription();
         int priority = taskEntry.getPriority();
+        String taskd = taskEntry.getTaskd();
         String updatedAt = dateFormat.format(taskEntry.getUpdatedAt());
 
         //Set values
@@ -80,6 +81,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         // Programmatically set the text and color for the priority TextView
         String priorityString = "" + priority; // converts int to String
         holder.priorityView.setText(priorityString);
+
+        holder.taskDateView.setText(taskd);
 
         GradientDrawable priorityCircle = (GradientDrawable) holder.priorityView.getBackground();
         // Get the appropriate background color based on the priority
@@ -145,6 +148,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         TextView taskDescriptionView;
         TextView updatedAtView;
         TextView priorityView;
+        TextView taskDateView;
 
         /**
          * Constructor for the TaskViewHolders.
@@ -153,7 +157,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
          */
         public TaskViewHolder(View itemView) {
             super(itemView);
-
+            taskDateView = itemView.findViewById(R.id.showdate);
             taskDescriptionView = itemView.findViewById(R.id.taskDescription);
             updatedAtView = itemView.findViewById(R.id.taskUpdatedAt);
             priorityView = itemView.findViewById(R.id.priorityTextView);

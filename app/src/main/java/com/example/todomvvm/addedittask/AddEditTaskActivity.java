@@ -1,24 +1,33 @@
 package com.example.todomvvm.addedittask;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.example.todomvvm.R;
 import com.example.todomvvm.database.AppDatabase;
 import com.example.todomvvm.database.Repository;
 import com.example.todomvvm.database.TaskEntry;
+import com.example.todomvvm.tasks.DatePickerFragment;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
-public class AddEditTaskActivity extends AppCompatActivity {
+public class AddEditTaskActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     // Extra for the task ID to be received in the intent
     public static final String EXTRA_TASK_ID = "extraTaskId";
@@ -35,7 +44,9 @@ public class AddEditTaskActivity extends AppCompatActivity {
     // Fields for views
     EditText mEditText;
     RadioGroup mRadioGroup;
-    Button mButton;
+    Button mButton , datepick;
+
+    TextView datetext;
 
     private int mTaskId = DEFAULT_TASK_ID;
 
@@ -87,12 +98,24 @@ public class AddEditTaskActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+
     /**
      * initViews is called from onCreate to init the member variable views
      */
     private void initViews() {
         mEditText = findViewById(R.id.editTextTaskDescription);
         mRadioGroup = findViewById(R.id.radioGroup);
+
+        datepick = findViewById(R.id.datePick);
+
+        datepick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+
 
         mButton = findViewById(R.id.saveButton);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +125,15 @@ public class AddEditTaskActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+        datetext= (TextView) findViewById(R.id.dateText);
+        datetext.setText(currentDateString);
+    }
     /**
      * populateUI would be called to populate the UI when in update mode
      *
@@ -113,6 +144,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
             return;
         }
         mEditText.setText(task.getDescription());
+    datetext.setText(task.getTaskd());
         setPriorityInViews(task.getPriority());
 
     }
@@ -125,8 +157,9 @@ public class AddEditTaskActivity extends AppCompatActivity {
         // Not yet implemented
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
+     String taskdate = datetext.getText().toString();
         Date date = new Date();
-        TaskEntry todo = new TaskEntry(description, priority, date);
+        TaskEntry todo = new TaskEntry(description, priority, taskdate, date);
         if(mTaskId == DEFAULT_TASK_ID)
             viewModel.insertTask(todo);
         else{
