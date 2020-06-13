@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint=""
-        android:id="@+id/dateText"></TextView>
+        ></TextView>
     <Button
         android:id="@+id/saveButton"
         style="@style/TextAppearance.AppCompat.Large"

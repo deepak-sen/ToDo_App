@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.todomvvm.R;
 import com.example.todomvvm.database.AppDatabase;
@@ -141,6 +142,21 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mEditText.length()==0)
+                {
+                    mEditText.setError("Enter Description");
+                }
+                else if (datepick.length()==0)
+                {
+                    datepick.setError("Enter Date");
+                }
+                else if (timepick.length()==0)
+                {
+                    timepick.setError("Enter Time");
+                }
+                else {
+                    Toast.makeText(AddEditTaskActivity.this, "New Task Added!", Toast.LENGTH_SHORT).show();
+                }
                 onSaveButtonClicked();
             }
         });
@@ -188,7 +204,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         // Not yet implemented
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
-     String taskdate = datetext.getText().toString();
+        String taskdate = datetext.getText().toString();
         String tasktime = timetext.getText().toString();
         Date date = new Date();
         TaskEntry todo = new TaskEntry(description, priority, taskdate, tasktime, date);
@@ -197,7 +213,6 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         else{
             todo.setId(mTaskId);
             viewModel.updateTask(todo);
-
         }
         finish();
 
