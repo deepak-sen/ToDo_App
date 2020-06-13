@@ -13,4 +13,9 @@
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@android:color/white</item>
     </style>
+    <style name="MyToolbarTheme"
+        parent="@style/ThemeOverlay.AppCompat.Dark">
+        <item name="colorControlNormal">#fff</item>
+        <item name="titleTextColor">#fff</item>
+    </style>
 </resources>
