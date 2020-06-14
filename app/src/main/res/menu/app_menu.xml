@@ -12,4 +12,9 @@
         android:icon="@drawable/ic_menu"
         android:title="Exit"
         />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_menu"
+        android:title="Logout"
+        />
 </menu>

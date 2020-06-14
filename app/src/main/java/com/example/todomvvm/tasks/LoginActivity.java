@@ -1,6 +1,8 @@
 package com.example.todomvvm.tasks;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -23,7 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private TextView register;
     private LoginDatabase loginDatabase;
-
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +35,11 @@ public class LoginActivity extends AppCompatActivity {
         user = findViewById(R.id.editText);
         pass = findViewById(R.id.editText2);
         login = findViewById(R.id.button);
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         register = findViewById(R.id.register);
 
         loginDatabase = LoginDatabase.geLoginDatabase(LoginActivity.this);
-
+        SharedPreferences.Editor editor = sharedpreferences.edit();
         RoomDAO roomDAO = loginDatabase.getRoomDAO();
         UsernamePassword temp = roomDAO.getLoggedInUser();
         if(temp!=null){
@@ -88,4 +92,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+
+
 }

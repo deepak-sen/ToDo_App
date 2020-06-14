@@ -12,13 +12,13 @@ import androidx.room.TypeConverters;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {TaskEntry.class}, version = 4, exportSchema = false)
+@Database(entities = {TaskEntry.class}, version = 5, exportSchema = false)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String LOG_TAG = AppDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();
-    private static String DATABASE_NAME = "todolist3";
+    private static String DATABASE_NAME = "todolist4";
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(1);
 

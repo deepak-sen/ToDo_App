@@ -5,16 +5,21 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.todomvvm.Adapter.TabAdapter;
 import com.example.todomvvm.R;
 import com.example.todomvvm.addedittask.AddEditTaskActivity;
+import com.example.todomvvm.database.LoginDatabase;
 import com.google.android.material.tabs.TabLayout;
 
 import org.xml.sax.helpers.XMLReaderAdapter;
@@ -41,12 +46,16 @@ public class MainActivity extends AppCompatActivity  {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.app_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -70,9 +79,24 @@ public class MainActivity extends AppCompatActivity  {
                 System.exit(1);
 
                 break;
+
+            case R.id.logout:
+                logout();
+
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public  void logout (){
+        SharedPreferences sharedpreferences = getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.clear();
+        editor.commit();
+    }
+
+
+
 
 //    ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
 //        @Override

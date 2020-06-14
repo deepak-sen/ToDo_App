@@ -16,26 +16,26 @@ public class TaskEntry {
     private int priority;
 
 
-    private String taskd, taskt;
+    private String taskd;
     @ColumnInfo(name="updated_at")
     private Date updatedAt;
 
     @Ignore
-    public TaskEntry(String description, int priority, String taskd, String taskt, Date updatedAt) {
+    public TaskEntry(String description, int priority, String taskd, Date updatedAt) {
         this.description = description;
         this.priority = priority;
         this.taskd = taskd;
-        this.taskt = taskt;
+
         this.updatedAt = updatedAt;
 
     }
 
-    public TaskEntry(int id, String description, int priority, String taskd, String taskt, Date updatedAt) {
+    public TaskEntry(int id, String description, int priority, String taskd,  Date updatedAt) {
         this.id = id;
         this.description = description;
         this.priority = priority;
         this.taskd = taskd;
-        this.taskt = taskt;
+
         this.updatedAt = updatedAt;
     }
 
@@ -71,13 +71,7 @@ public class TaskEntry {
         this.taskd = taskd;
     }
 
-    public String getTaskt() {
-        return taskt;
-    }
 
-    public void setTaskt(String taskt) {
-        this.taskt = taskt;
-    }
 
     public Date getUpdatedAt() {
         return updatedAt;

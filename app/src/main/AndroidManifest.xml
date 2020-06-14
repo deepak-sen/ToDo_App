@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".tasks.MainActivity"
-            android:label="Home Page" />
+            android:label="Home" />
         <activity
             android:name=".tasks.Register"
             android:label="Register" />

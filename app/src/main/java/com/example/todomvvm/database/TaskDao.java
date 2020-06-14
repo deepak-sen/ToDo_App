@@ -14,6 +14,8 @@ import java.util.List;
 public interface TaskDao {
 
 
+
+
     @Query("select * from task order by priority")
     LiveData<List<TaskEntry>> loadAllTasks();
 
