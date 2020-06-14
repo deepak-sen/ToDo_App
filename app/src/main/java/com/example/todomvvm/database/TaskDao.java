@@ -13,6 +13,7 @@ import java.util.List;
 @Dao
 public interface TaskDao {
 
+
     @Query("select * from task order by priority")
     LiveData<List<TaskEntry>> loadAllTasks();
 
@@ -27,5 +28,7 @@ public interface TaskDao {
 
     @Query("Select * from task where id =:taskId")
     LiveData<TaskEntry> loadTAskById(int taskId);
+
+
 
 }

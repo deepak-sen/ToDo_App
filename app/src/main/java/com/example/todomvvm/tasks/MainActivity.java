@@ -1,6 +1,8 @@
 package com.example.todomvvm.tasks;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -14,6 +16,11 @@ import com.example.todomvvm.Adapter.TabAdapter;
 import com.example.todomvvm.R;
 import com.example.todomvvm.addedittask.AddEditTaskActivity;
 import com.google.android.material.tabs.TabLayout;
+
+import org.xml.sax.helpers.XMLReaderAdapter;
+
+import java.util.Collections;
+
 public class MainActivity extends AppCompatActivity  {
 
     // Constant for logging
@@ -66,5 +73,23 @@ public class MainActivity extends AppCompatActivity  {
         }
         return super.onOptionsItemSelected(item);
     }
+
+//    ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
+//        @Override
+//        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder dragged, @NonNull RecyclerView.ViewHolder target) {
+//
+//           int position_dragged = dragged.getAdapterPosition();
+//           int position_target = target.getAdapterPosition();
+//           Collections.swap(myDataset,position_dragged,position_target);
+//           mAdapter.notifyiItemMoved(position_dragged,position_target);
+//            return false;
+//        }
+//
+//        @Override
+//        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+//
+//        }
+//    });
+//    helper.attachToRecyclerView()
 }
 

@@ -64,7 +64,6 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         setContentView(R.layout.activity_add_edit_task);
 
 
-
         initViews();
 
         if (savedInstanceState != null && savedInstanceState.containsKey(INSTANCE_TASK_ID)) {
@@ -103,6 +102,8 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         outState.putInt(INSTANCE_TASK_ID, mTaskId);
         super.onSaveInstanceState(outState);
     }
+
+
 
 
     /**
@@ -193,6 +194,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
 
         setPriorityInViews(task.getPriority());
         datetext.setText(task.getTaskd());
+
 
     }
 
