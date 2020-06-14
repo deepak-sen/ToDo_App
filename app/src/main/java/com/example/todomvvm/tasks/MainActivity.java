@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity  {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         adapter = new TabAdapter(getSupportFragmentManager());
         adapter.addFragment(new ListFragment(), "Todo-List");
-        adapter.addFragment(new SecondFragment(), "Category");
+        adapter.addFragment(new SecondFragment(), "About");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

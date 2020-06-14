@@ -5,7 +5,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tasks.Register"
-    >
+    android:background="@color/colorPrimaryLight">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="75dp"
+                android:text="To-Do App"
+
+                android:textAlignment="center"
+                android:textSize="35dp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:layout_marginBottom="75dp"
+                android:text="Version 1.1"
+
+                android:textAlignment="center"
+                android:textSize="20dp" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="180dp"
+                android:layout_marginBottom="75dp"
+                android:text="Terms and Privacy"
+
+                android:textAlignment="center"
+                android:textSize="18dp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:layout_marginBottom="75dp"
+                android:text="By using To-Do App, you agree to To-Do App's Terms "
+
+                android:textAlignment="center"
+                android:textSize="15dp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="240dp"
+                android:layout_marginBottom="75dp"
+                android:text="and Privacy. "
+
+                android:textAlignment="center"
+                android:textSize="15dp" />
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="280dp"
+                android:layout_marginBottom="75dp"
+
+                android:text="Developed By:-"
+                android:textAlignment="center"
+
+                android:textSize="16dp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:layout_marginBottom="75dp"
+                android:text="Deepak Sen © 2020"
+                android:textAlignment="center"
+
+                android:textSize="13dp" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
