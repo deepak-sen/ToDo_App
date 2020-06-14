@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         UsernamePassword temp = roomDAO.getUserwithUsername(user);
         //Toast.makeText(this, temp.getPassword(), Toast.LENGTH_SHORT).show();
         if(temp==null){
-            Toast.makeText(LoginActivity.this,"Invalid username", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,"Invalid username or password", Toast.LENGTH_SHORT).show();
         }
         else{
             if(temp.getPassword().equals(pass)){

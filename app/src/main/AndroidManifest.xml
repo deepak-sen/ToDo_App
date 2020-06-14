@@ -14,11 +14,13 @@
             android:label="Home" />
         <activity
             android:name=".tasks.Register"
-            android:label="Register" />
+            android:label="Register"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".addedittask.AddEditTaskActivity"
             android:label="Add a new Task" /> <!-- <activity android:name=".tasks.MainActivity"/> -->
-        <activity android:name=".tasks.LoginActivity">
+        <activity android:name=".tasks.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

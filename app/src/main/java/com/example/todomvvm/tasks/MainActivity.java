@@ -80,10 +80,7 @@ public class MainActivity extends AppCompatActivity  {
 
                 break;
 
-            case R.id.logout:
-                logout();
 
-                break;
         }
         return super.onOptionsItemSelected(item);
     }
