@@ -21,16 +21,16 @@
         android:gravity="start"
         android:hint="@string/edit_task_description"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
-<ImageButton
-    android:layout_width="50dp"
-    android:layout_height="50dp"
 
-    android:layout_gravity="end"
-    android:src="@drawable/mic"
-    android:id="@+id/voiceBtn"
-    android:background="@null"
-    android:scaleType="fitCenter"
-    />
+    <ImageView
+        android:id="@+id/voiceBtn"
+        android:layout_width="45dp"
+
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/mic" />
 
     <!-- TextView and FrameLayout (which contains buttons) for Priority Selection -->
     <TextView
