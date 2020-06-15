@@ -64,6 +64,7 @@ public class Register extends AppCompatActivity {
 
         UsernamePassword temp2 = roomDAO.getUserwithUsername(user);
         if(temp2==null) {
+
             roomDAO.Insert(temp);
             Toast.makeText(Register.this,"Registered Successfully", Toast.LENGTH_SHORT).show();
             LoginDatabase.destroyInstance();

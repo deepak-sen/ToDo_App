@@ -11,11 +11,13 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -31,8 +33,10 @@ import com.example.todomvvm.tasks.TimePickerFragment;
 
 import java.text.DateFormat;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class AddEditTaskActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
@@ -49,13 +53,15 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
     private static final int DEFAULT_TASK_ID = -1;
     // Constant for logging
     private static final String TAG = AddEditTaskActivity.class.getSimpleName();
+    private static final int REQUEST_CODE_SPEECH_INPUT = 1000;
     // Fields for views
     EditText mEditText;
+    private TextView oEditText;
     RadioGroup mRadioGroup;
     Button mButton ;
     Button datePick;
     TextView datetext;
-
+    private ImageButton mvoicePick;
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
     private int mTaskId = DEFAULT_TASK_ID;
@@ -80,6 +86,9 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
 
                  DatePickerDialog datePickerDialog =  new DatePickerDialog(AddEditTaskActivity.this, AddEditTaskActivity.this, year, month, day);
                  datePickerDialog.show();
+
+
+
 
              }
          });
@@ -132,21 +141,44 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
      */
     private void initViews() {
         mEditText = findViewById(R.id.editTextTaskDescription);
-        mRadioGroup = findViewById(R.id.radioGroup);
+        oEditText = (TextView) findViewById(R.id.editTextTaskDescription);
+        mvoicePick = findViewById(R.id.voiceBtn);
 
-
-
-
-
-
+        mvoicePick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak();
+            }
+        });
         mButton = findViewById(R.id.saveButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mEditText.length()==0)
+                {
+                    mEditText.setError("Enter Description");
+                }
 
+                else {
+                    Toast.makeText(AddEditTaskActivity.this, "New Task Added!", Toast.LENGTH_SHORT).show();
+                }
                 onSaveButtonClicked();
             }
         });
+    }
+
+    private void speak() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say Something");
+
+                try {
+                       startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
+                }
+                catch (Exception e){
+                    Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
     }
 
     /**
@@ -159,6 +191,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
             return;
         }
         mEditText.setText(task.getDescription());
+        oEditText.setText(task.getDescription());
 
         setPriorityInViews(task.getPriority());
 
@@ -206,6 +239,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         return priority;
     }
 
+
     /**
      * setPriority is called when we receive a task from MainActivity
      *
@@ -249,5 +283,19 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
                 dayFinal + "\n" +
                 "Time: " +hourFinal + ":" +
                 minuteFinal);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case REQUEST_CODE_SPEECH_INPUT:{
+                if(requestCode == RESULT_OK && null!=data){
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    oEditText.setText(result.get(0));
+                }
+                break;
+            }
+        }
     }
 }

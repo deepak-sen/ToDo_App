@@ -21,6 +21,7 @@ import com.example.todomvvm.addedittask.AddEditTaskActivity;
 import com.example.todomvvm.database.TaskEntry;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ListFragment extends Fragment implements TaskAdapter.ItemClickListener {
@@ -122,5 +123,25 @@ public class ListFragment extends Fragment implements TaskAdapter.ItemClickListe
         intent.putExtra(AddEditTaskActivity.EXTRA_TASK_ID, itemId);
         startActivity(intent);
     }
+
+
+//    ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
+//        @Override
+//        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder dragged, @NonNull RecyclerView.ViewHolder target) {
+//
+//            int position_dragged = dragged.getAdapterPosition();
+//            int position_target = target.getAdapterPosition();
+//            Collections.swap(myDataset,position_dragged,position_target);
+//            mAdapter.notifyiItemMoved(position_dragged,position_target);
+//            return false;
+//        }
+//
+//        @Override
+//        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+//
+//        }
+//    });
+//    helper.attachToRecyclerView()
+
 
 }

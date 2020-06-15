@@ -171,4 +171,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             mItemClickListener.onItemClickListener(elementId);
         }
     }
+
+
+
 }

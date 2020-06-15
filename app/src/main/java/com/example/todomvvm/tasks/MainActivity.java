@@ -14,24 +14,30 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.todomvvm.Adapter.TabAdapter;
 import com.example.todomvvm.R;
 import com.example.todomvvm.addedittask.AddEditTaskActivity;
 import com.example.todomvvm.database.LoginDatabase;
+import com.example.todomvvm.database.RoomDAO;
+import com.example.todomvvm.database.UsernamePassword;
 import com.google.android.material.tabs.TabLayout;
 
 import org.xml.sax.helpers.XMLReaderAdapter;
 
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity  implements SearchView.OnQueryTextListener
+{
 
     // Constant for logging
     private TabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private LoginDatabase loginDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity  {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.app_menu,menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -79,38 +86,40 @@ public class MainActivity extends AppCompatActivity  {
                 System.exit(1);
 
                 break;
+            case R.id.logout:
+                logout();
+
+                break;
 
 
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public  void logout (){
-        SharedPreferences sharedpreferences = getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.clear();
-        editor.commit();
+    private void logout (){
+        loginDatabase = LoginDatabase.geLoginDatabase(MainActivity.this);
+        RoomDAO roomDAO = loginDatabase.getRoomDAO();
+        UsernamePassword temp = roomDAO.getLoggedInUser();
+        if(temp!=null){
+            temp.setIsloggedIn(0);
+            roomDAO.Update(temp);
+            LoginDatabase.destroyInstance();
+        }
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
     }
 
 
 
-
-//    ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
-//        @Override
-//        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder dragged, @NonNull RecyclerView.ViewHolder target) {
-//
-//           int position_dragged = dragged.getAdapterPosition();
-//           int position_target = target.getAdapterPosition();
-//           Collections.swap(myDataset,position_dragged,position_target);
-//           mAdapter.notifyiItemMoved(position_dragged,position_target);
-//            return false;
-//        }
-//
-//        @Override
-//        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-//
-//        }
-//    });
-//    helper.attachToRecyclerView()
 }
 

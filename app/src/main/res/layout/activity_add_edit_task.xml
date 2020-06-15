@@ -21,6 +21,16 @@
         android:gravity="start"
         android:hint="@string/edit_task_description"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+<ImageButton
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+
+    android:layout_gravity="end"
+    android:src="@drawable/mic"
+    android:id="@+id/voiceBtn"
+    android:background="@null"
+    android:scaleType="fitCenter"
+    />
 
     <!-- TextView and FrameLayout (which contains buttons) for Priority Selection -->
     <TextView
@@ -76,7 +86,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:hint="05/05/2020"
+
     android:id="@+id/dateText"></TextView>
+
+
+    <!-- Add button -->
     <Button
         android:id="@+id/datePick"
         style="@style/TextAppearance.AppCompat.Large"
@@ -89,8 +103,6 @@
 
         />
 
-
-    <!-- Add button -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

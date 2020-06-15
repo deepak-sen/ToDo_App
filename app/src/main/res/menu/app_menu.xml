@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:title="Search"
+        android:id="@+id/action_search"
+        android:icon="@mipmap/search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+    <item
         android:id="@+id/settings"
         android:icon="@drawable/ic_menu"
         android:title="Settings"
@@ -11,6 +18,11 @@
         android:id="@+id/exit"
         android:icon="@drawable/ic_menu"
         android:title="Exit"
+        />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_menu"
+        android:title="Logout"
         />
 
 </menu>

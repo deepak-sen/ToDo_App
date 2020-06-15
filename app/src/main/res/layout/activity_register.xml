@@ -78,10 +78,10 @@
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="16dp"
-                android:text="Already Registered? Click here to Sign In"/>
+                android:text="Click here to Sign In"/>
 
             <ImageView
-                android:layout_width="348dp"
+                android:layout_width="wrap_content"
                 android:layout_height="71dp"
                 android:layout_above="@+id/editText"
                 android:layout_alignParentEnd="true"
