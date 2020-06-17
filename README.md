@@ -2,7 +2,7 @@
 # ToDO App
 <a href="https://i.ibb.co/j4D4yVM/register.png" width="200" height="200"><img src="https://i.ibb.co/j4D4yVM/register.png " width="200" height="200" title="ToDo" alt="ToDo"></a>
 
-<!-- [![FVCproductions](CHANGE_IMAGE_HERE)] -->
+
 
 
 > A ToDo app for Component 2
