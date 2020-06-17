@@ -5,7 +5,6 @@
 <!-- [![FVCproductions](CHANGE_IMAGE_HERE)] -->
 
 
-
 > A ToDo app for Component 2
 
 > An app which can create and store task as well as give users ability to set dates reminders about their day to day activity
@@ -145,7 +144,7 @@ $ Latest Gradel
 
 ```shell
 $ Android Virtual Device
-$ Android Phone running 5.5 or higher
+$ Android Phone running Android 5.5 or higher
 ```
 
 
