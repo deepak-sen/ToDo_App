@@ -118,7 +118,7 @@ public class AddEditTaskViewModelFactory extends ViewModelProvider.NewInstanceFa
 
 ## Installation
 
-- First register an account by filling up the form
+- First register for an account by filling up the form
 - After regestering Login with same details from registration page
 - To add a task tap the floading 'Add' icon
 - Fill in the fields with apropriate data
