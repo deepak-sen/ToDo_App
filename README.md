@@ -1,207 +1,202 @@
 
-# TODO.
+# ToDO App
+<a href="https://i.ibb.co/j4D4yVM/register.png" width="200" height="200"><img src="https://i.ibb.co/j4D4yVM/register.png " width="200" height="200" title="ToDo" alt="ToDo"></a>
+
+<!-- [![FVCproductions](CHANGE_IMAGE_HERE)] -->
+
+
+
+> A ToDo app for Component 2
+
+> An app which can create and store task as well as give users ability to set dates reminders about their day to day activity
+
+> tags: app, todo, android, github
 ---
 
-<p align="center">
-  <img src="https://i.ibb.co/SQKHL27/todo.png">
-</p>
-
----
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
-![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)
-![Badges](http://img.shields.io/:badges-9/9-ff6799.svg?style=flat-square)
-![Badges](http://img.shields.io/:perfection%20badge-5/7-ff6799.svg?style=flat-square)
-
----
-
-
-## Features
-Register          |  Sign-IN                      | Adding ToooDooo              |  Adding ToDo List
-:----------------------------:|:--------------------------------------:|:----------------------:|:-----------------
-<img src = "http://g.recordit.co/FA4dI80KXq.gif" width="200" height="360">  |  <img src = "http://g.recordit.co/2BUesdd1wI.gif" width="200" height="360">        |  <img src = "http://g.recordit.co/NWyseEnKvW.gif" width="200" height="360">  | <img src = "http://g.recordit.co/9BEfyIXARp.gif" width="200" height="360">
-#
-SpeechToText          |  Adding Name Description                   | Marking Complete/Incomplete              |  Undo Todo
-:----------------------------:|:--------------------------------------:|:----------------------:|:-----------------
- <img src = "http://g.recordit.co/LSOThTsE2i.gif" width="200" height="360"> |   <img src = "http://g.recordit.co/eo7po84uIf.gif" width="200" height="360">        | <img src = "http://g.recordit.co/0VtmQQ2dEI.gif" width="200" height="360">   | <img src = "http://g.recordit.co/Tlhc9nYTSb.gif" width="200" height="360">
-
+## Table of Contents
+### Click here to jump to these pages:-
+- [Branching Stages](#branching-stages)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [Project Pictures & GIFs](#gifs)
+- [Documents](#documents)
 
 
 ---
 
-## Downloads:
-
-| Platform | Architecture    | Version | Link                                                                                                                         |
-| -------- | ------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Android  | x64     | 1.o   | <a href='https://play.google.com/store/apps/details?id=com.np.pramitmarattha&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="200" height="70"/></a>  |
-
----
-
-## About Installation (Installing and using the App)
-#### ***1 Register/ Sign Up:*** : Fill the Required Information and Sign Up.
-#### ***2 Login:*** : After Signing Up Login with the same credentials.
-##### ***3 Todo List:*** : Click on the floating Add icon and create the Todo List
-#### ***4 Todo Item:***  : After creating a Todo List ,Now click on the list and create your Todo Items.
-#### ***5 Editing the Todo Items:*** : Click on the Todo Item and edit it.
-#### ***6 Deleting the todo items and list:***. : You can delete Todolist or a todoItem.
-#### ***7 Sorting or filtering out:*** : Sort the completed and incomplete Todo items.
-#### ***8 Searching Todo items :*** : Search the todo items.
-
----
-
-### Design Architecture 
-# MODEL
-* `adapter`  consists of recyclerviews adapters.<br>
--`TaskListsAdapter` <br>
--`TaskItemsAdapter` <br>
-* `InterfacePrompt` consists of dialog prompts popup & Swipe to delete<br>
--`AddNewTodoListDialog`<br>
--`SwipeLeftDelete`<br>
--`TodoItemsCallBack`<br>
--`TodoListCallbacks`<br>
--`SignoutDialog`<br>
-* `Database` consists of dao(class for room database) ,UserAuthentication,db..<br>
--`DataAccessObject`<br>
--`AppDatabase`<br>
--`Dateconvert`<br>
--`EntireUserDatabase`<br>
--`RegisterUserAuthentication`<br>
--`TodoItems`<br>
--`TodoLists`<br>
--`TodoListsAndItems`<br>
-
-# VIEW
-* `Activity`  consists of main activity<br>
--`MainActivity` <br>
-* `Fragments` consists of all fragments<br>
--`LoginFragments`<br>
--`RegisterFragments`<br>
--`SplashFragments`<br>
--`TodoListFormFragments`<br>
--`TodoListFragments`<br>
-
-# ViewModel
-* `authHandleHomeViewModel`  <br>
-* `ParentExtendHomeViewModel` <br>
-* `SignInViewModel` <br>
-* `SignInviewModel` <br>
-*  `SignUpViewModel` <br>
-*  `TodoListViewModel`<br>
-*  `TodoItemViewModel`<br>
-
----
-
-# Development Stages
+# Branching Stages
 ```bash
 ├── Master
 |
-|---->|─ InitialStep Branch
-│     ├── Entity Branch
-│     ├── DataAccessObject branch
-│     ├── Database Branch
-│     ├── TypeConverter Branch
-│     ├── Thread runnable & executor Branch 
-│     ├── PopulateList Branch
-│     ├── DeleteList Branch
-│     ├── UpdateList branch
-│     ├── Live Data Branch
-│     ├── MainActivityViewModel Branch
-│     ├── AddEditTaskActivityViewModel Branch
-│     ├── Repository Branch
-│     ├── UserInterface Branch
-│     ├── Updating The Icons Branch
-│     ├── Updating the Task branch
-│     ├── Undo Feature Branch
-│     ├── SnackBarPopUPFeature after delete Branch
-│     ├── New AppIcon Branch
-│     ├── CustomDate Feature Brach
+|---->|─ First Branch
+│     ├── Fragment Branch
+│     ├── Datepick Branch
+│     ├── Timepick Branch
+│     ├── Menubar Branch
+│     ├── Login_register Branch 
+│     ├── Layout Branch
+│     ├── Design Branch
+│     ├── About branch
+│     ├── Logout Branch
 │     ├── SpeechToText Branch
-│     ├── ConvertActivityToFragment Branch    
-│     ├── Login/SignUp-toSaveTODO branch       
-│     ├── RefinedUserInterface Branch
-│     ├── NavigationComponent-viewPager Branch        
-│<----├── WrappingInPackage-&-Apk-Export Branch        
-│   
-├── Final Phase(Apk Export)                       <-------- Current progress
+│     ├── 
+│     ├── 
+
+```
+
+---
+***Project Branches***
+
+[![INSERT YOUR GRAPHIC HERE](https://i.ibb.co/N2VCLhq/Active.png)]()
+
+
+
+---
+
+# Architecture 
+## Adapter
+* `TabAdapter`<br>
+
+## AddEditTask
+* `AddEditTaskActivity`  <br>
+* `AddEditTaskViewModel` <br>
+* `AddEditTaskViewModelFactory` <br>
+* `LoginFragments`<br>
+* `RegisterFragments`<br>
+* `SplashFragments`<br>
+* `TodoListFormFragments`<br>
+* `TodoListFragments`<br>
+
+## Database
+* `AppDatabase`  <br>
+* `DateConverter` <br>
+* `LoginDatabase` <br>
+* `Repository` <br>
+*  `RoomDAO` <br>
+*  `TaskDao`<br>
+*  `TaskEntry`<br>
+*  `UsarenamePassword`<br>
+
+## Tasks
+* `ListFragment`  <br>
+* `LoginActivity` <br>
+* `MainActivity` <br>
+* `MainActivityViewModel` <br>
+*  `Register` <br>
+*  `SecondFragment`<br>
+*  `TaskAdapter`<br>
+
+---
+
+
+
+
+## Example of how the code looks
+
+```java
+// code away!
+
+public class AddEditTaskViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+
+    Application application;
+    int taskId;
+
+    public AddEditTaskViewModelFactory(Application application, int taskId){
+        this.application = application;
+        this.taskId = taskId;
+    }
+
+    @NonNull
+    @Override
+    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+        return  (T) new AddEditTaskViewModel(application, taskId);
+    }
+}
+
 ```
 
 ---
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/37651620/84611109-8d9aec00-aedc-11ea-8205-2345e2481927.png" alt="" width="700" height="720">
-</p>
+## Installation
+
+- First register an account by filling up the form
+- After regestering Login with same details from registration page
+- To add a task tap the floading 'Add' icon
+- Fill in the fields with apropriate data
+- After creation of new task tap anywhere on task to update
+- To delete simply swipe the task left or right
+
+### Clone
+
+- Clone this repo to your local machine using `https://github.com/deepak-sen/ToDo_App`
+
+### Setup
+
+- If you want to edit the code:
+
+> update and install these items
+
+```shell
+$ Android Studio
+$ Latest Gradel
+```
+
+> Item needed to run code
+
+```shell
+$ Android Virtual Device
+$ Android Phone running 5.5 or higher
+```
+
+
+---
+## Pictures of various pages
+Register          |  Sign-IN                      | Adding ToooDooo              
+:----------------------------:|:--------------------------------------:|:----------------------:|
+<img src = "https://i.ibb.co/9nmb67r/pic-login.png" width="288" height="512">  |  <img src = "https://i.ibb.co/cXsRzmJ/pic-task.png" width="288" height="512">        |  <img src = "https://i.ibb.co/ZmK7gnT/pictask.jpg" width="288" height="512">
+
 
 ---
 
-## Documentation (Model–view–viewmodel architecture in a nutshell) 
-Model–view–viewmodel (MVVM) is a software architectural pattern that facilitates the separation of the development of the graphical user interface (the view) be it via a markup language or GUI code from the development of the business logic or back-end logic (the model) so that the view is not dependent on any specific model platform. The view model of MVVM is a value converter,meaning the view model is responsible for exposing (converting) the data objects from the model in such a way that objects are easily managed and presented. In this respect, the view model is more model than view, and handles most if not all of the view's display logic.The view model may implement a mediator pattern, organizing access to the back-end logic around the set of use cases supported by the view.
+## Gifs
+
+> Gifs of various featurs of app
+
+Register          |  LogIn                      | Add Task              |  Speech To Text
+:----------------------------:|:--------------------------------------:|:----------------------:|:-----------------
+<img src = "https://i.ibb.co/HzFTtLF/register.gif" width="200" height="360">  |  <img src = "https://i.ibb.co/Z1MJ77S/login.gif" width="200" height="360">        |  <img src = "https://i.ibb.co/nrfXR5W/addTask.gif" width="200" height="360">  | <img src = "https://i.ibb.co/FKNdTtt/speech.gif" width="200" height="360">
 #
-![](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/img/a7da8f5ea91bac52.png)
+Update          |  CheckBox                      | Logout              |  Fragments
+:----------------------------:|:--------------------------------------:|:----------------------:|:-----------------
+<img src = "https://i.ibb.co/8KmR2Nr/update.gif" width="200" height="360">  |  <img src = "https://i.ibb.co/p4YWh75/checkbox.gif" width="200" height="360">        |  <img src = "https://i.ibb.co/3rVgQ5g/logout.gif" width="200" height="360">  | <img src = "https://i.ibb.co/LhLzwX0/fragments.gif" width="200" height="360">
 
 ---
 
+
+# Documents
+## MVVM 
+<p align="center">
+<img src="https://i.ibb.co/x6CRfgY/mvvm.png" alt="" width="500" height="500">
+</p>
+- MVVM stands for Model, View, ViewModel.
+
+<p>-Model: This holds the data of the application. It cannot directly talk to the View. Generally, it’s recommended to expose the data to the ViewModel through Observables.</p>
+<p>- View: It represents the UI of the application devoid of any Application Logic. It observes the ViewModel.</p>
+<p>- ViewModel: It acts as a link between the Model and the View. It’s responsible for transforming the data from the Model. It provides data streams to the View. It also uses hooks or callbacks to update the View. It’ll ask for the data from the Model.</p>
+
+---
 # `References`
-### `Resources used to create this App`
-#### List of all modules , libraries & Repo-references to create this App:
 
-1. Room persistance library: [https://developer.android.com/topic/libraries/architecture/room]
-2. Paint class holds the style and color information about how to draw geometries, text and bitmaps.: [https://developer.android.com/reference/android/graphics/Paint]
-3. LayoutInflater: It Instantiates a layout XML file into its corresponding View objects[https://developer.android.com/reference/android/view/LayoutInflater]
-4. RxAndroid: Reactive Extensions for Android : [https://github.com/ReactiveX/RxAndroid]
-5. Appache commons hashcodebuilder: [https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/HashCodeBuilder.html]
-6. Data Binding: It is a is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically. : [https://developer.android.com/topic/libraries/data-binding]
-7. Validation: [https://github.com/thyrlian/AwesomeValidation]
-8. Handling Lifecycles with Lifecycle-Aware Components: [https://developer.android.com/topic/libraries/architecture/lifecycle]
-9. Navigation Components: [https://developer.android.com/guide/navigation/navigation-getting-started]
-10. Material Components: [https://material.io/develop/android/docs/getting-started/]
-11. Material-components-android: [https://github.com/material-components/material-components-android]
-12. Referencing complex data using Room:[https://developer.android.com/training/data-storage/room/referencing-data]
-13. TypeConverter: [https://developer.android.com/reference/android/arch/persistence/room/TypeConverter]
-14. android.widget:[https://developer.android.com/reference/android/widget/package-summary]
-15. Uri :[https://developer.android.com/reference/android/net/Uri]
-16. Creating Task Room: [https://github.com/ebbi/TaskRoom]
-17. Creating Task Fragment:[https://github.com/ebbi/TaskFragment]
-18. TodoViewModel:[https://github.com/ebbi/TodoViewModel]
-19. Todo app Model View ViewModel architecture:[https://github.com/ebbi/TodoMVVM]
+1. Fragments: [https://developer.android.com/guide/components/fragments]
+2. Using Recyclerview: [https://developer.android.com/jetpack/androidx/releases/recyclerview]
+3. Using Menus :[https://developer.android.com/guide/topics/ui/menus]
+4. Intents and Intent Filters : [https://developer.android.com/guide/components/intents-filters]
+5. Using Swipe: [https://developer.android.com/guide/navigation/navigation-swipe-view]
+6. Room Persistence Library : [https://developer.android.com/topic/libraries/architecture/room]
+7. MVVM architecture, ViewModel and LiveData : [https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1]
+8. ViewModel : [https://developer.android.com/reference/android/arch/lifecycle/ViewModel]
+
 
 ---
 
-# Detailed Documented process of each Branch
-InitialPhase Branch                                |  Entity Branch
-:-------------------------------------------------:|:-------------------------------------------------:
-![](http://g.recordit.co/oz8cX3el2G.gif)           |  ![](http://g.recordit.co/JQvMR5cJbj.gif)
-
-DataAcessObject Branch                             |  Database Branch
-:-------------------------------------------------:|:-------------------------------------------------:
-![](http://g.recordit.co/pjNmkW9T0q.gif)           |  ![](http://g.recordit.co/HD0k1JbdKd.gif)
-
-TypeConverter Branch                               |  ThreadRunnableExectors Branch
-:-------------------------------------------------:|:-------------------------------------------------:
-![](http://g.recordit.co/5IAQC2JeJr.gif)           |  ![](http://g.recordit.co/21sIloC9N2.gif)
-
-
-PopulatingList Branch                              |  DeletingTask Branch
-:-------------------------------------------------:|:-------------------------------------------------:
-![](http://g.recordit.co/4hB24sPSYN.gif)           |  ![](https://user-images.githubusercontent.com/37651620/82155625-fb300a00-9895-11ea-891c-6aac9f21f03e.gif)
-
-UpdatingTask Branch                                |  LiveData Branch
-:-------------------------------------------------:|:-------------------------------------------------:
-![](https://user-images.githubusercontent.com/37651620/82155701-8f9a6c80-9896-11ea-8c1e-a0c8454cc8d8.gif)           |  ![](http://g.recordit.co/LqSU525J4J.gif)
-
-MainActivityViewModel Branch                       | AddEditTaskActivityViewModel Branch  
-:-------------------------------------------------:|:-------------------------------------------------:
-![](https://user-images.githubusercontent.com/37651620/82155735-bfe20b00-9896-11ea-82eb-c62bda5bf779.gif)           |  ![](https://user-images.githubusercontent.com/37651620/82155763-e0aa6080-9896-11ea-8939-2996e3f3dec9.gif)
-
-Repository Branch                                  |  DeletePopUp Branch 
-:-------------------------------------------------:|:-------------------------------------------------:
-![](https://user-images.githubusercontent.com/37651620/82156059-c1acce00-9898-11ea-8be8-55d18a64fc93.gif)           |  ![](http://g.recordit.co/idA7vDJzaI.gif)
-
-SppechToText Branch                                | CustomDate Branch
-:-------------------------------------------------:|:-------------------------------------------------:
-![XK8laCyYBo](https://user-images.githubusercontent.com/37651620/82156096-e1dc8d00-9898-11ea-85de-2bdef7f144b0.gif)         |  ![9Wte9nXKLN](https://user-images.githubusercontent.com/37651620/82156420-ae9afd80-989a-11ea-88f8-c15c399b1722.gif)
-
-
-OraganizingFilesByPackage Branch                   | Activity to Fragment & Nav. component
-:-------------------------------------------------:|---------------------------------------------------:
-![](https://user-images.githubusercontent.com/37651620/82150888-59022900-9879-11ea-91e7-41ea0ee6e4f3.gif) |![activityTofragment](https://user-images.githubusercontent.com/37651620/83865108-6bb7a180-a745-11ea-9965-d1ee35b68cad.gif)
-
----
+- Copyright 2020 © <a href="http://deepaksen.com.np" target="_blank">Deepak Sen</a>.
