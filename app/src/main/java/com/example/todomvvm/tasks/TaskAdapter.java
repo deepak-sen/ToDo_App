@@ -138,6 +138,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         notifyDataSetChanged();
     }
 
+
     public interface ItemClickListener {
         void onItemClickListener(int itemId);
     }

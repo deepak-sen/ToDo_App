@@ -54,7 +54,7 @@ public class ListFragment extends Fragment implements TaskAdapter.ItemClickListe
         super.onViewCreated(view, savedInstanceState);
 
 
-    viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
 
         // Set the RecyclerView to its corresponding view
         mRecyclerView = view.findViewById(R.id.recyclerViewTasks);
