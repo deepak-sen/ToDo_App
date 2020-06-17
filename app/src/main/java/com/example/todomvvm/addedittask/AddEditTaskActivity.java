@@ -148,7 +148,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
                 }
 
                 else {
-                    Toast.makeText(AddEditTaskActivity.this, "New Task Added!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEditTaskActivity.this, "Task Added!", Toast.LENGTH_SHORT).show();
                 }
                 onSaveButtonClicked();
             }
